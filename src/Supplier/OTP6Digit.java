@@ -44,6 +44,5 @@ public class OTP6Digit {
         System.out.println(s.get());
         System.out.println(s.get());
         System.out.println(s.get());
-
     }
 }
