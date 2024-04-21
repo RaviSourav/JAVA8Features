@@ -3,6 +3,7 @@ package StreamAPI;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 class MyComparator implements Comparator<String>{
 
@@ -79,5 +80,22 @@ public class Sample1 {
         System.out.println(res3.stream().max((s1,s2)-> s1.compareTo(s2)).get());
         System.out.println(integers.stream().min((s1,s2)-> s1-s2).get());
         System.out.println(integers.stream().max((s1,s2)-> s1-s2).get());
+
+
+        System.out.println();
+
+
+        //copy the element of the list to array
+        Integer[] arr = integers.toArray(Integer[]::new);
+        Arrays.stream(arr).forEach(System.out::print);
+        for (Integer i:arr) {
+            System.out.print(i+" ");
+        }
+
+        System.out.println();
+        Stream s1 = Stream.of(arr);
+//        s1.forEach(System.out::print);  //here we can not use s1 at same place otherwise it will throw CE
+        s1.forEach(i-> System.out.print(i+" ")); // Stream is already used
+        Stream.of(arr).forEach(i-> System.out.print(i+" "));
     }
 }
